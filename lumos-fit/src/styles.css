@@ -1,0 +1,10 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .address-input{
+    display: block;
+    margin: 0.5rem;
+  }
+  
