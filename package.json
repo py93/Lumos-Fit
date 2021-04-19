@@ -10,7 +10,9 @@
     "miragejs": "0.1.41",
     "react": "17.0.0",
     "react-dom": "17.0.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-router-dom": "6.0.0-beta.0",
+    "history": "5.0.0"
   },
   "devDependencies": {
     "typescript": "3.8.3"

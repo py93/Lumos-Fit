@@ -1,5 +1,25 @@
 import { createServer, Model, RestSerializer } from "miragejs";
-import faker, { fake } from "faker";
+import faker from "faker";
+
+export const categories = [
+  "Bars",
+  "Benches",
+  "Weights",
+  "Plates",
+  "Dumbells",
+  "Kettlebells"
+]
+
+const db = [...Array(5)].map((id) => ({
+    id: faker.random.uuid(),
+    name: faker.commerce.productName(),
+    price: faker.commerce.price(),
+    description: faker.commerce.productDescription(),
+    category: faker.random.arrayElement([...categories]),
+    image: faker.random.image(),
+    rating: faker.random.arrayElement([1,2,3,4,5]),
+    inStock: faker.random.boolean()
+}));
 
 export default function setupMockServer() {
   createServer({
@@ -9,7 +29,9 @@ export default function setupMockServer() {
 
     models: {
       address: Model,
-      product: Model
+      product: Model,
+      cart: Model,
+      wishlist: Model
     },
 
     routes() {
@@ -17,6 +39,8 @@ export default function setupMockServer() {
       this.timing = 3000;
       this.resource("addresses");
       this.resource("products");
+      this.resource("carts");
+      this.resource("wishlists");
     },
 
     seeds(server) {
@@ -33,11 +57,25 @@ export default function setupMockServer() {
           contactNo: faker.phone.phoneNumber()
         });
       });
-      [...Array(5)].forEach((_) => {
+
+      db.forEach((product) => {
         server.create("product", {
-          id: faker.random.uuid(),
-          productName: faker.commerce.productName(),
-          productPrice: faker.commerce.price()
+          ...product
+        });
+      });
+
+      db.forEach((product) => {
+        server.create("cart", {
+          ...product,
+          cartQty: 1,
+          status: { exists: false }
+        });
+      });
+
+      db.forEach((product) => {
+        server.create("wishlist", {
+          ...product,
+          status: { exists: false }
         });
       });
     }
