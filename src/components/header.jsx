@@ -7,49 +7,6 @@ export function Header() {
   const navRef = useRef(null);
 
   return (
-    // <nav className="navbar">
-    //   <div className="nav-section">
-    //     <img src={require("../images/logo.png")} />
-    //     <NavLink to="/" className="header link">
-    //       LumosFit
-    //     </NavLink>
-    //   </div>
-    //   <ul className="list-non-bullet">
-    //     <li className="list-item-inline link">
-    //       <NavLink
-    //         to="/products"
-    //         className="link"
-    //         activeClassName="link-active"
-    //       >
-    //         Products
-    //       </NavLink>
-    //     </li>
-    //     <li className="list-item-inline">
-    //       <NavLink to="/cart" className="link" activeClassName="link-active">
-    //         Cart
-    //       </NavLink>
-    //     </li>
-    //     <li className="list-item-inline">
-    //       <NavLink
-    //         to="/wishlist"
-    //         className="link"
-    //         activeClassName="link-active"
-    //       >
-    //         Wishlist
-    //       </NavLink>
-    //     </li>
-    //     <li className="list-item-inline">
-    //       <NavLink to="/address" className="link" activeClassName="link-active">
-    //         Manage Addresses
-    //       </NavLink>
-    //     </li>
-    //     <li className="list-item-inline link">
-    //       <NavLink to="/login" className="link" activeClassName="link-active">
-    //         Login
-    //       </NavLink>
-    //     </li>
-    //   </ul>
-    // </nav>
     <nav ref={navRef} className="navbar">
       <div className="nav-section">
         <div className="burger nav-section-items" onClick={() => {navRef.current.classList.toggle("active")}}>
