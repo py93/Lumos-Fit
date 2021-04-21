@@ -1,4 +1,4 @@
-export const getSortedData = (state, data) => {
+export function getSortedData(state, data) {
   if (state.sortBy === "HIGH_TO_LOW_PRICE") {
     return [...data].sort((product1, product2) => {
       return Number(product2.price) - Number(product1.price);
@@ -10,9 +10,9 @@ export const getSortedData = (state, data) => {
     });
   }
   return data;
-};
+}
 
-export const getFilteredData = (state, data) => {
+export function getFilteredData(state, data) {
   let newData = [...data];
   if (!state.filters.includeOutOfStock) {
     newData = newData.filter((product) => product.inStock);
@@ -22,67 +22,71 @@ export const getFilteredData = (state, data) => {
       state.filters.filterByCategories.includes(product.category)
     );
   return newData;
-};
+}
 
-export const filterDataOnStatus = (data) => {
+export function filterDataOnStatus(data) {
   return data.filter((item) => item.status.exists);
-};
+}
 
-export const isAdded = (items, id) => {
-    for (let item of items) {
-      if (item.id === id) return true;
+export function isAdded(items, id) {
+  for (let item of items) {
+    if (item.id === id) return true;
+  }
+  return false;
+}
+
+export function checkStatus(items, id) {
+  for (let item of items) {
+    if (item.id === id && item.status.exists) return true;
+  }
+  return false;
+}
+
+export function toggleStatus(items, id) {
+  return items.map((item) => {
+    if (item.id === id) {
+      return { ...item, status: { exists: !item.status.exists } };
+    } else {
+      return item;
     }
-    return false;
-  };
-  
-  export const checkStatus = (items, id) => {
-    for (let item of items) {
-      if (item.id === id && item.status.exists) return true;
+  });
+}
+
+export function removeItemFromCart(items, id) {
+  return items.map((item) => {
+    if (item.id === id) {
+      return { ...item, cartQty: 1, status: { exists: false } };
+    } else {
+      return item;
     }
-    return false;
-  };
-  
-  export const toggleStatus = (items, id) => {
-    return items.map((item) => {
-      if (item.id === id) {
-        return { ...item, status: { exists: !item.status.exists } };
-      } else {
-        return item;
-      }
-    });
-  };
-  export const removeItemFromCart = (items, id) => {
-    return items.map((item) => {
-      if (item.id === id) {
-        return { ...item, cartQty: 1, status: { exists: false } };
-      } else {
-        return item;
-      }
-    });
-  };
-  export const addItemChangeStatus = (items, id) => {
-    return items.map((item) => {
-      if (item.id === id) {
-        return { ...item, status: { exists: true } };
-      } else {
-        return item;
-      }
-    });
-  };
-  export const updateQtyInCart = (items, id, incOrDec) =>
-    items.map((item) =>
-      item.id === id
-        ? {
-            ...item,
-            cartQty: incOrDec ? item.cartQty + 1 : item.cartQty - 1
-          }
-        : item
-    );
-  
-  export const addNewItem = (items, item) => [
-    ...items,
-    { ...item, cartQty: 1 }
-  ];
-  
-  export const removeItem = (items, removeItemId) =>
-    items.filter((item) => item.id !== removeItemId);
+  });
+}
+
+export function addItemChangeStatus(items, id) {
+  return items.map((item) => {
+    if (item.id === id) {
+      return { ...item, status: { exists: true } };
+    } else {
+      return item;
+    }
+  });
+}
+
+export function updateQtyInCart(items, id, incOrDec) {
+  return items.map((item) =>
+    item.id === id
+      ? {
+          ...item,
+          cartQty: incOrDec ? item.cartQty + 1 : item.cartQty - 1,
+        }
+      : item
+  );
+}
+
+export function addNewItem(items, item) {
+  return [...items, { ...item, cartQty: 1 }];
+}
+
+export function removeItem(items, removeItemId) {
+  items.filter((item) => item.id !== removeItemId);
+}

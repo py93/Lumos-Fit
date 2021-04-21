@@ -15,7 +15,7 @@ export function CartActions({ product }) {
           data: { cart: { ...product, status: { exists: false } } },
         });
         dispatch({
-          type: "REMOVE_FROM_CART",
+          type: "REMOVE_ITEM_FROM_CART",
           payload: product,
         });
       } else {
@@ -32,11 +32,11 @@ export function CartActions({ product }) {
         });
         incOrDec
           ? dispatch({
-              type: "INCREMENT_CART_QTY",
+              type: "INC_ITEM_QTY_IN_CART",
               payload: product,
             })
           : dispatch({
-              type: "DECREMENT_CART_QTY",
+              type: "DEC_ITEM_QTY_IN_CART",
               payload: product,
             });
       }

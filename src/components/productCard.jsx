@@ -3,7 +3,6 @@ import { WishlistButton } from './wishlistButton';
 import { AddToCartButton } from './cartButton';
 
 export function ProductCard({product}){
-
     return(
     <div className="card-vertical">
     
@@ -19,17 +18,15 @@ export function ProductCard({product}){
         <div>
           <h6>
             {product.name}
-            <WishlistButton
-              key={product.id}
-              product={product}
-            />
+            
           </h6>
         </div>
         <div>
           <p>
             Rs.{product.price}
           </p>
-          <div className="rating-good">{product.rating}
+          <div className={ parseInt(product.rating) > 3 ? "rating-good":"rating-below-avg"}>{product.rating}
+          <img src={require("../images/rating-star.svg")} className="rating-star"></img>
           </div>
         </div>
         <div>
@@ -37,6 +34,10 @@ export function ProductCard({product}){
             key={product.id}
             product={product}
           />
+          <WishlistButton
+              key={product.id}
+              product={product}
+            />
         </div>
       </div>
 

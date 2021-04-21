@@ -20,10 +20,7 @@ function WishlistCard({product}) {
   return(<>
       <div className="card-vertical border-width-1px">
      
-      <button
-        type="button"
-        onClick={removeFromWishlist}
-      >Remove from wishlist</button>
+      
       <div className="image-container badge-container">
         <img
           className="img-responsive card-img"
@@ -45,6 +42,10 @@ function WishlistCard({product}) {
             Rs.{product.price}
           </p>
         </div>
+        <button className="button button-primary"
+        type="button"
+        onClick={removeFromWishlist}
+      >Remove from wishlist</button>
         <div className="CTA-Container">
           <AddToCartButton
             key={product.id}

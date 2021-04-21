@@ -41,7 +41,7 @@ export function AddToCartButton({product}){
     };
     return (
         <>
-          <button
+          <button className="button button-primary alt"
             style={{ display: !product.inStock ? "none" : "block" }}
             onClick={addToCartHandler}
           >

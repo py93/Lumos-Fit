@@ -8,8 +8,6 @@ function CartCard({product}){
 
     return (
     <div className="card-horizontal border-width-1px default-container">
-   
-
       <div className="image-container">
         <img
           className="img-responsive card-img"

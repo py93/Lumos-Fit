@@ -12,8 +12,7 @@ export default function Products() {
   return (
     <>
       <h5>
-        Strength Training Equipment{" "}
-        <span className="text-light-weight"> - {filteredData.length} items</span>
+        Strength Training Equipment - {filteredData.length} items
       </h5>
       <div className="display-flex-filter">
         <div className="grid-left-filter">

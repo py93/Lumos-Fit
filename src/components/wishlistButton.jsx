@@ -41,18 +41,9 @@ export function WishlistButton({product}){
         }
       };
       return (
-        <button
-          style={{
-            color: checkStatus(state.wishlist, product.id)
-              ? "var(--primary-color)"
-              : ""
-          }}
-          onClick={likeHandler}
+        <button className="button button-secondary" onClick={likeHandler}
         >
-          <span>
-            <i className="fas fa-heart"></i>
-          </span>
-          Add to wishlist
+          {checkStatus(state.wishlist, product.id)? "Remove from wishlist" : "Add to wishlist"}
         </button>
       );
 }
