@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { ADDRESS_URL } from "../utils/constants";
 
 export default function Address() {
   const [addresses, setAddresses] = useState([]);
@@ -7,7 +8,7 @@ export default function Address() {
   useEffect(() => {
     //IIFE: good practice
     (async function () {
-      const addressesData = await axios.get("/api/addresses");
+      const addressesData = await axios.get(ADDRESS_URL);
       setAddresses(addressesData.data.addresses);
     })();
   }, []);
@@ -122,7 +123,7 @@ export default function Address() {
   async function addNewAddress() {
     try {
       console.log("newAddress", newAddress);
-      const data = await axios.post("/api/addresses", {
+      const data = await axios.post(ADDRESS_URL, {
         address: {
           fullName: newAddress.fullName,
           addressLine1: newAddress.addressLine1,
