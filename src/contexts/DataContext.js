@@ -26,17 +26,6 @@ export function DataProvider({ children }) {
           type: "SET_PRODUCTS",
           payload: productResponse.data.products,
         });
-
-        // const cartResponse = await axios.get("https://lumosFit-service-APIs.hermoine93.repl.co/cart");
-        // console.log("CART DATA ", cartResponse);
-        // dispatch({ type: "SET_CART", payload: cartResponse.data.carts });
-        
-        // const wishlistResponse = await axios.get("https://lumosFit-service-APIs.hermoine93.repl.co/cart");
-        // console.log("WISHLIST DATA ", wishlistResponse)
-        // dispatch({
-        //   type: "SET_WISHLIST",
-        //   payload: wishlistResponse.data.wishlists,
-        // });
         
       } catch (err) {
         console.log("Error message: ", err);
@@ -46,7 +35,6 @@ export function DataProvider({ children }) {
 
   return (
     <>
-      {/* <DataContext.Provider value={{state, dispatch, products, setProducts, cartItems, setCartItems}}> */}
       <DataContext.Provider value={{ state, dispatch }}>
         {children}
       </DataContext.Provider>
