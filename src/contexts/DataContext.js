@@ -21,21 +21,23 @@ export function DataProvider({ children }) {
   useEffect(() => {
     (async () => {
       try {
-        const productResponse = await axios.get("/api/products");
+        const productResponse = await axios.get("https://lumosFit-service-APIs.hermoine93.repl.co/products");
         dispatch({
           type: "SET_PRODUCTS",
           payload: productResponse.data.products,
         });
 
-        const cartResponse = await axios.get("/api/carts");
-        dispatch({ type: "SET_CART", payload: cartResponse.data.carts });
+        // const cartResponse = await axios.get("https://lumosFit-service-APIs.hermoine93.repl.co/cart");
+        // console.log("CART DATA ", cartResponse);
+        // dispatch({ type: "SET_CART", payload: cartResponse.data.carts });
         
-        const wishlistResponse = await axios.get("/api/wishlists");
-        dispatch({
-          type: "SET_WISHLIST",
-          payload: wishlistResponse.data.wishlists,
-        });
-
+        // const wishlistResponse = await axios.get("https://lumosFit-service-APIs.hermoine93.repl.co/cart");
+        // console.log("WISHLIST DATA ", wishlistResponse)
+        // dispatch({
+        //   type: "SET_WISHLIST",
+        //   payload: wishlistResponse.data.wishlists,
+        // });
+        
       } catch (err) {
         console.log("Error message: ", err);
       }

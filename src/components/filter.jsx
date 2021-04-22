@@ -1,6 +1,6 @@
 import { useDataContext } from "../contexts/DataContext";
 import React, { useState } from "react";
-import {categories} from "../api/mock.server";
+import { categories } from "../staticData/categories.data";
 
 export function Filter(){
 

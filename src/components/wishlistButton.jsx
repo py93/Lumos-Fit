@@ -11,26 +11,26 @@ export function WishlistButton({product}){
         
         try {
           if (isAdded(state.wishlist, product.id)) {
-            await apiRequest({
-              requestType: "PUT",
-              url: "api/wishlists",
-              dataId: product.id,
-              data: {
-                wishlist: {
-                  ...product,
-                  status: { exist: !checkStatus(state.wishlist, product.id) }
-                }
-              }
-            });
+            // await apiRequest({
+            //   requestType: "PUT",
+            //   url: "api/wishlists",
+            //   dataId: product.id,
+            //   data: {
+            //     wishlist: {
+            //       ...product,
+            //       status: { exist: !checkStatus(state.wishlist, product.id) }
+            //     }
+            //   }
+            // });
           } else {
-            await apiRequest({
-              requestType: "POST",
-              url: "api/wishlists",
-              dataId: product.id,
-              data: {
-                wishlist: { ...product, status: { exist: true } }
-              }
-            });
+            // await apiRequest({
+            //   requestType: "POST",
+            //   url: "api/wishlists",
+            //   dataId: product.id,
+            //   data: {
+            //     wishlist: { ...product, status: { exist: true } }
+            //   }
+            // });
           }
           dispatch({
             type: "ADD_REMOVE_ITEM_TO_WISHLIST",

@@ -8,28 +8,28 @@ export function CartActions({ product }) {
   const cartQtyHandler = async (incOrDec) => {
     try {
       if (!incOrDec && product.cartQty === 1) {
-        await apiRequest({
-          requestType: "PUT",
-          url: "api/carts",
-          dataId: product.id,
-          data: { cart: { ...product, status: { exists: false } } },
-        });
+        // await apiRequest({
+        //   requestType: "PUT",
+        //   url: "api/carts",
+        //   dataId: product.id,
+        //   data: { cart: { ...product, status: { exists: false } } },
+        // });
         dispatch({
           type: "REMOVE_ITEM_FROM_CART",
           payload: product,
         });
       } else {
-        await apiRequest({
-          requestType: "PUT",
-          url: "api/carts",
-          dataId: product.id,
-          data: {
-            cart: {
-              ...product,
-              cartQty: incOrDec ? product.cartQty + 1 : product.cartQty - 1,
-            },
-          },
-        });
+        // await apiRequest({
+        //   requestType: "PUT",
+        //   url: "api/carts",
+        //   dataId: product.id,
+        //   data: {
+        //     cart: {
+        //       ...product,
+        //       cartQty: incOrDec ? product.cartQty + 1 : product.cartQty - 1,
+        //     },
+        //   },
+        // });
         incOrDec
           ? dispatch({
               type: "INC_ITEM_QTY_IN_CART",

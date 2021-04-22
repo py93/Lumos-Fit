@@ -95,7 +95,7 @@ export function dataReducer(state, action) {
     case "REMOVE_ITEM_FROM_CART":
       return {
         ...state,
-        cart: removeItemFromCart(state.itemsInCart, action.payload.id),
+        cart: removeItemFromCart(state.cart, action.payload.id),
       };
 
     case "SORT": {

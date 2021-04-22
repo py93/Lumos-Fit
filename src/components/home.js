@@ -1,5 +1,5 @@
 import React from "react";
-import { featuredCategories } from "../api/mock.server";
+import { featuredCategories } from "../staticData/categories.data";
 import { useDataContext } from "../contexts/DataContext";
 import { NavLink, useNavigate } from "react-router-dom";
 export function Home() {

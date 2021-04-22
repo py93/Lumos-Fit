@@ -16,18 +16,18 @@ export function AddToCartButton({product}){
               navigate("/cart");
             } else {
               if (isAdded(state.cart, product.id)) {
-                await apiRequest({
-                  requestType: "PUT",
-                  url: "api/carts",
-                  dataId: product.id,
-                  data: { cart: { ...product, status: { exists: true } } }
-                });
+                // await apiRequest({
+                //   requestType: "PUT",
+                //   url: "api/carts",
+                //   dataId: product.id,
+                //   data: { cart: { ...product, status: { exists: true } } }
+                // });
               } else {
-                await apiRequest({
-                  requestType: "POST",
-                  url: "api/carts",
-                  data: { cart: { ...product, status: { exists: true } } }
-                });
+                // await apiRequest({
+                //   requestType: "POST",
+                //   url: "api/carts",
+                //   data: { cart: { ...product, status: { exists: true } } }
+                // });
               }
               dispatch({
                 type: "ADD_TO_CART",

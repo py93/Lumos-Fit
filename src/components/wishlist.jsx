@@ -10,7 +10,7 @@ function WishlistCard({product}) {
 
   async function removeFromWishlist(){
     try{
-      await apiRequest({requestType: "PUT", url: "api/wishlist", dataId: product.id, data: {wishlist: {...product, status: {exists:false}}}});
+      // await apiRequest({requestType: "PUT", url: "api/wishlist", dataId: product.id, data: {wishlist: {...product, status: {exists:false}}}});
       dispatch({type:"ADD_REMOVE_ITEM_TO_WISHLIST", payload: product})
     }
     catch{
