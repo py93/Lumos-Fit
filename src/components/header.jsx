@@ -53,6 +53,7 @@ export function Header() {
               Manage Addresses
             </NavLink>
           </li>
+          {/* TODO: Will remove comment after Auth implementation is completed.
           <li className="list-inline-item">
             <NavLink
               end
@@ -62,7 +63,7 @@ export function Header() {
             >
               Logout
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       <div className="nav-section">
       <NavLink to="/wishlist" className="nav-icon-link">
