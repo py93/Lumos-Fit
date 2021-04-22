@@ -1,0 +1,1 @@
+export const PRODUCT_URL = "https://LumosFitStore-APIs.hermoine93.repl.co/products";

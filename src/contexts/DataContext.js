@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { dataReducer } from "./../reducers/DataReducer";
 import axios from "axios";
-
+import { PRODUCT_URL } from './../utils/constants';
 
 const DataContext = createContext();
 
@@ -21,7 +21,7 @@ export function DataProvider({ children }) {
   useEffect(() => {
     (async () => {
       try {
-        const productResponse = await axios.get("https://lumosFit-service-APIs.hermoine93.repl.co/products");
+        const productResponse = await axios.get(PRODUCT_URL);
         dispatch({
           type: "SET_PRODUCTS",
           payload: productResponse.data.products,
