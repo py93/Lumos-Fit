@@ -12,12 +12,19 @@ export default function Address() {
       setAddresses(addressesData.data.addresses);
     })();
   }, []);
-
   return (
     <>
-      <h1> Address Management </h1>
-      <div style={{ display: "flex" }}>
-        <div style={{ border: "solid 1px black", width: "40%" }}>
+      <h1 className=""> Address Management </h1>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            border: "solid #1E40AF 2px ",
+            borderRadius: ".5rem",
+            width: "auto",
+            margin: "1rem",
+            padding: "1rem",
+          }}
+        >
           <h4>Add new address</h4>
           <input
             type="text"
@@ -92,7 +99,9 @@ export default function Address() {
               setNewAddress({ ...newAddress, contactNo: value });
             }}
           ></input>
-          <button onClick={addNewAddress}>Add</button>
+          <button className="button button-primary alt" onClick={addNewAddress}>
+            Add
+          </button>
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -100,9 +109,10 @@ export default function Address() {
             <div key={address.id} style={{ textAlign: "left" }}>
               <div
                 style={{
-                  border: "solid black 1px",
+                  border: "solid #1E40AF 2px",
+                  borderRadius: ".5rem",
                   padding: "1rem",
-                  margin: "1rem"
+                  margin: "1rem",
                 }}
               >
                 <div style={{ fontWeight: "bold" }}>{address.fullName}</div>
@@ -112,7 +122,10 @@ export default function Address() {
                 <div>{address.state}</div>
                 <div>{address.zipCode}</div>
                 <div>{address.phoneNumber}</div>
-                <button>Edit</button> | <button>Remove</button>
+                <button className="button button-primary alt">
+                  Edit
+                </button> |{" "}
+                <button className="button button-secondary">Remove</button>
               </div>
             </div>
           ))}
@@ -132,8 +145,8 @@ export default function Address() {
           state: newAddress.state,
           country: newAddress.country,
           zipCode: newAddress.zipCode,
-          contactNo: newAddress.contactNo
-        }
+          contactNo: newAddress.contactNo,
+        },
       });
       console.log(data);
       setAddresses([data.data.address, ...addresses]);

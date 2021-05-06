@@ -1,7 +1,7 @@
 import { useDataContext } from "../contexts/DataContext";
 import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { filterDataOnStatus } from './../utils/utilFunctions';
+import { filterDataOnStatus } from "./../utils/utilFunctions";
 export function Header() {
   const { state } = useDataContext();
   const navRef = useRef(null);
@@ -9,7 +9,12 @@ export function Header() {
   return (
     <nav ref={navRef} className="navbar">
       <div className="nav-section">
-        <div className="burger nav-section-items" onClick={() => {navRef.current.classList.toggle("active")}}>
+        <div
+          className="burger nav-section-items"
+          onClick={() => {
+            navRef.current.classList.toggle("active");
+          }}
+        >
           <div className="line1"></div>
           <div className="line1"></div>
           <div className="line1"></div>
@@ -22,7 +27,8 @@ export function Header() {
           </NavLink>
         </div>
       </div>
-      <ul className="navbar-links">
+      <div className="nav-section">
+        <ul className="navbar-links">
           <li className="list-inline-item">
             <NavLink
               end
@@ -65,24 +71,22 @@ export function Header() {
             </NavLink>
           </li> */}
         </ul>
-      <div className="nav-section">
-      <NavLink to="/wishlist" className="nav-icon-link">
-            <span className="nav-icon badge-container">
-              <i className="fas fa-heart"></i>
-              <span className="status-badge status-badge-number flex">
-                {filterDataOnStatus(state.wishlist).length}
-              </span>
+        <NavLink to="/wishlist" className="nav-icon-link">
+          <span className="nav-icon badge-container">
+            <i className="fas fa-heart"></i>
+            <span className="status-badge status-badge-number flex">
+              {filterDataOnStatus(state.wishlist).length}
             </span>
-      </NavLink>
-      <NavLink to="/cart" className="nav-icon-link">
-            <span className="nav-icon badge-container">
-              <i className="fas fa-shopping-cart"></i>
-               <span className="status-badge status-badge-number flex">
-                {filterDataOnStatus(state.cart).length}
-              </span>
+          </span>
+        </NavLink>
+        <NavLink to="/cart" className="nav-icon-link">
+          <span className="nav-icon badge-container">
+            <i className="fas fa-shopping-cart"></i>
+            <span className="status-badge status-badge-number flex">
+              {filterDataOnStatus(state.cart).length}
             </span>
-      </NavLink>
-
+          </span>
+        </NavLink>
       </div>
     </nav>
   );

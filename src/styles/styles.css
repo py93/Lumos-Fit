@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css";
 @import url('./filter.css');
+@import url('./carousel.css');
 :root {
   --inactive-color: rgb(191, 192, 198);
   --z-index-1: 1;
@@ -477,7 +478,7 @@ label {
   opacity: 0.9;
 }
 .overlay-container {
-  opacity: 0.3;
+  opacity: 0.1;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -625,7 +626,6 @@ padding-left: 4rem;
   .grid-4-column-layout{
       grid-template-columns: 1fr 1fr;
   }
-
 }
 
 p, .p{

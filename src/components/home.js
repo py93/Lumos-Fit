@@ -2,20 +2,24 @@ import React from "react";
 import { featuredCategories } from "../staticData/categories.data";
 import { useDataContext } from "../contexts/DataContext";
 import { NavLink, useNavigate } from "react-router-dom";
+import { Carousel } from "./carousel.jsx";
 export function Home() {
   const { dispatch } = useDataContext();
   const navigate = useNavigate();
 
   return (
     <>
-    <h4 className="home-welcome">Welcome to LumosFit Store! <br/><br/> Your one stop for all strength training items.<br/>
-    <br/>
-    <NavLink to="/products" className="badge bg-primary alt">
-              Shop Now
-            </NavLink></h4>
+      <h4 className="home-welcome">
+        LumosFit Store: One stop for all strength training products
+        <br />
+        <NavLink to="/products" className="badge bg-primary">
+          Shop Now
+        </NavLink>
+      </h4>
+      <Carousel />
       <div className="homepage-container">
-        <h3 className="center heading-secondary">Featured Categories</h3>
-        <div className="spacer-1rem"></div>
+        <h4 className="center heading-primary">Featured Categories</h4>
+
         <div className="grid-4-column-layout">
           {featuredCategories.map((category) => {
             return (
@@ -25,7 +29,7 @@ export function Home() {
                 onClick={() => {
                   dispatch({
                     type: "FILTER_BY_CATEGORIES",
-                    payload: category.name
+                    payload: category.name,
                   });
                   navigate("/products");
                 }}
@@ -38,7 +42,7 @@ export function Home() {
                       alt={category.name}
                     />
                   </div>
-                </div> 
+                </div>
                 <div className="overlay-text text-center">
                   <h3 className="">{category.name}</h3>
                 </div>
@@ -47,6 +51,6 @@ export function Home() {
           })}
         </div>
       </div>
-  </>
+    </>
   );
 }
